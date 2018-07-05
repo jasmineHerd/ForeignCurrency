@@ -18,7 +18,7 @@ public class ForeignCurrency {
         
         getRates();
         doValuation();
-        System.out.println("Thanks for using the currency calculator");
+        System.out.println("Thanks for using the currency calculator!");
         
     }
 
@@ -57,22 +57,22 @@ public class ForeignCurrency {
             
         int choice,qty; //quantity
         double cval=0, totval = 0; //currency value
-        NumberFormat curr =NumberFormat.getCurrencyInstance();
+        NumberFormat curr = NumberFormat.getCurrencyInstance();
                 //ARRAYS!!!
         int[] units = new int[5];// remember new = constructor call.remember oop
-        for(int i =0; i <5; i ++){
+        for(int i =0; i<=4; i ++){
             units[i]=0;
         }
-        double ctot[] = {0,0,0,0,0};
+        double ctot[] = {0.0, 0.0, 0.0, 0.0, 0.0};
         String[] cabv = {"EUR","GBP","JPY", "CAD","RUB"};
 
     
         choice = getChoice();//priming read
         while(choice !=0  ){
-            cval =0;
+            cval = 0;
             switch(choice){
                 case 1:
-                    qty = getQty("How many Euros ");
+                    qty = getQty("How many Euros? ");
                     cval = qty * rEUR;
                     System.out.println(qty + " Euros has a value of " + 
                             curr.format(cval));
@@ -98,7 +98,7 @@ public class ForeignCurrency {
                 case 4:
                     qty = getQty("How many Canadian Dollars? ");
                     cval = qty * rCAD;
-                    System.out.println(qty + " Canadian Dollar has a value of " + 
+                    System.out.println(qty + " Canadian Dollars has a value of " + 
                             curr.format(cval));
                     units[3] += qty;
                     ctot[3] += qty;
@@ -127,9 +127,9 @@ public class ForeignCurrency {
                     
   
             }//while
-        for(int i= 0; i<5;i++){
-        System.out.println(cabv[i] + ": "+
-                " units costing: " +
+        for(int i= 0; i<=4;i++){
+        System.out.println(cabv[i] + ": "+ units[i]+
+                " unit(s) costing: " +
                 curr.format(ctot[i]));
     }
         
